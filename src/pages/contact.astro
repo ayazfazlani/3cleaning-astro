@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="3CLEANING SERVICE | Contact" description="Professional cleaning services.">
+<section class="breadcrumb">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb-nav"><a href="index.html">Home</a><i class="fas fa-chevron-right"
+                    style="font-size:0.7rem;"></i><span>Contact</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get In Touch</span>
+                <h2>Request a Free Quote</h2>
+                <p>Ready for a cleaner space? Reach out for a free quote or to schedule your service.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+15095280560">(509) 528-0560</a>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Mon–Sat: 8AM – 6PM
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/15095280560" target="_blank">Chat on WhatsApp</a>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Fastest response
+                                time</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:info@3cleaningservice.com">info@3cleaningservice.com</a>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Reply within 24
+                                hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Service Area</h4>
+                            <p style="color:var(--text-light);">Tri-Cities, WA & Surrounding</p>
+                            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Pasco, Richland,
+                                Kennewick, Walla Walla, Benton City, Finley, Burbank</p>
+                        </div>
+                    </div>
+                    <div
+                        style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 1.5rem; border-radius: var(--radius); color: white; text-align: center;">
+                        <h3 style="color:white;margin-bottom:0.5rem;font-size:1.1rem;"><i class="fab fa-whatsapp"
+                                style="margin-right:0.5rem;"></i>Prefer WhatsApp?</h3>
+                        <p style="color:rgba(255,255,255,0.8);font-size:0.9rem;margin-bottom:1rem;">Get instant
+                            responses and book directly through WhatsApp.</p>
+                        <a href="https://wa.me/15095280560" target="_blank" class="btn"
+                            style="background:#25d366;color:white;width:100%;"><i class="fab fa-whatsapp"></i> Start
+                            Chat</a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h3 style="margin-bottom: 1.5rem;">Request a Free Quote</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(509) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="junk-removal">Junk Removal</option>
+                                <option value="pressure-washing">Pressure Washing</option>
+                                <option value="trash-bin">Trash Bin Service</option>
+                                <option value="house-cleaning">House Cleaning</option>
+                                <option value="yard-cleanup">Yard Cleanup</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Your Location *</label>
+                            <select id="location" name="location" required>
+                                <option value="">Select your city...</option>
+                                <option value="pasco">Pasco, WA</option>
+                                <option value="richland">Richland, WA</option>
+                                <option value="kennewick">Kennewick, WA</option>
+                                <option value="walla-walla">Walla Walla, WA</option>
+                                <option value="benton-city">Benton City, WA</option>
+                                <option value="finley">Finley, WA</option>
+                                <option value="burbank">Burbank, WA</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message"
+                                placeholder="Tell us about your project, preferred date, or special requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;"><i
+                                class="fas fa-paper-plane"></i> Send Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
