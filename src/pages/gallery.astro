@@ -82,4 +82,85 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Footer -->
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="galleryLightbox">
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script is:inline>
+    function initLightbox() {
+        const lightbox = document.getElementById('galleryLightbox');
+        if (!lightbox) return;
+
+        const lbImage = document.getElementById('lightboxImage');
+        const lbCaption = document.getElementById('lightboxCaption');
+        const lbCounter = document.getElementById('lightboxCounter');
+        const lbClose = document.getElementById('lightboxClose');
+        const lbPrev = document.getElementById('lightboxPrev');
+        const lbNext = document.getElementById('lightboxNext');
+        const items = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const item = items[currentIndex];
+            const img = item.querySelector('img');
+            const caption = item.querySelector('.gallery-overlay h4');
+            lbImage.src = img.src;
+            lbImage.alt = img.alt;
+            lbCaption.textContent = caption ? caption.textContent : '';
+            lbCounter.textContent = (currentIndex + 1) + ' / ' + items.length;
+        }
+
+        function navigate(dir) {
+            currentIndex = (currentIndex + dir + items.length) % items.length;
+            updateLightbox();
+        }
+
+        items.forEach(function(item, i) {
+            item.addEventListener('click', function() { openLightbox(i); });
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbPrev.addEventListener('click', function() { navigate(-1); });
+        lbNext.addEventListener('click', function() { navigate(1); });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+    }
+
+    document.addEventListener('astro:page-load', initLightbox);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLightbox);
+    } else {
+        initLightbox();
+    }
+    </script>
 </Layout>
