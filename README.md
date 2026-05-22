@@ -24,7 +24,13 @@ The contact form sends mail via `/api/contact` using SMTP settings in `.env`:
 | `CONTACT_FROM_EMAIL` | Sender address |
 | `CONTACT_TO_EMAIL` | Inbox that receives form submissions |
 
-For production, run with the Node adapter (`npm run build` then `node ./dist/server/entry.mjs` or your host’s Node process).
+### Deploy on Vercel
+
+1. Push the repo and import the project in [Vercel](https://vercel.com).
+2. Add the same variables from `.env` in **Project → Settings → Environment Variables**.
+3. Deploy — the `@astrojs/vercel` adapter serves static pages and the `/api/contact` form endpoint.
+
+Do **not** set a custom output directory in Vercel; the adapter handles the build output.
 
 ## Commands
 
