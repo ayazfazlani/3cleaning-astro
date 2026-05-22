@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | Blog" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | Blog`}>
 <section class="breadcrumb">
         <div class="container">
             <h1>Our Blog</h1>
@@ -29,10 +30,10 @@ import Layout from '../layouts/Layout.astro';
                             <span><i class="fas fa-calendar"></i> May 15, 2026</span>
                             <span><i class="fas fa-tag"></i> Junk Removal</span>
                         </div>
-                        <h3><a href="#">How to Prepare for Junk Removal: A Complete Checklist</a></h3>
+                        <h3><a href="/contact?service=junk">How to Prepare for Junk Removal: A Complete Checklist</a></h3>
                         <p>Make your junk removal day smooth and efficient with our comprehensive preparation guide.
                             Learn what to sort, what to keep, and how to maximize your service.</p>
-                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Read More</a>
+                        <a href="/contact?service=junk" class="btn btn-secondary" style="margin-top: 1rem;">Get a Quote</a>
                     </div>
                 </article>
 
@@ -43,10 +44,10 @@ import Layout from '../layouts/Layout.astro';
                             <span><i class="fas fa-calendar"></i> May 10, 2026</span>
                             <span><i class="fas fa-tag"></i> Pressure Washing</span>
                         </div>
-                        <h3><a href="#">Pressure Washing vs. Soft Washing: Which Do You Need?</a></h3>
+                        <h3><a href="/contact?service=pressure">Pressure Washing vs. Soft Washing: Which Do You Need?</a></h3>
                         <p>Understanding the difference between pressure washing and soft washing can save your surfaces
                             from damage. We break down when to use each method.</p>
-                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Read More</a>
+                        <a href="/contact?service=pressure" class="btn btn-secondary" style="margin-top: 1rem;">Get a Quote</a>
                     </div>
                 </article>
 
@@ -57,10 +58,10 @@ import Layout from '../layouts/Layout.astro';
                             <span><i class="fas fa-calendar"></i> May 5, 2026</span>
                             <span><i class="fas fa-tag"></i> Home Tips</span>
                         </div>
-                        <h3><a href="#">Spring Cleaning Guide for Tri-Cities Homeowners</a></h3>
+                        <h3><a href="/contact">Spring Cleaning Guide for Tri-Cities Homeowners</a></h3>
                         <p>Get your home ready for summer with our Tri-Cities-specific spring cleaning checklist. From
                             yard prep to deep interior cleaning.</p>
-                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Read More</a>
+                        <a href="/contact" class="btn btn-secondary" style="margin-top: 1rem;">Get a Quote</a>
                     </div>
                 </article>
 
@@ -71,10 +72,10 @@ import Layout from '../layouts/Layout.astro';
                             <span><i class="fas fa-calendar"></i> April 28, 2026</span>
                             <span><i class="fas fa-tag"></i> Eco-Friendly</span>
                         </div>
-                        <h3><a href="#">Eco-Friendly Disposal: What Happens to Your Junk?</a></h3>
+                        <h3><a href="/contact?service=junk">Eco-Friendly Disposal: What Happens to Your Junk?</a></h3>
                         <p>Learn how we prioritize recycling and responsible disposal to minimize environmental impact
                             while clearing your space.</p>
-                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Read More</a>
+                        <a href="/contact?service=junk" class="btn btn-secondary" style="margin-top: 1rem;">Get a Quote</a>
                     </div>
                 </article>
 
@@ -85,10 +86,10 @@ import Layout from '../layouts/Layout.astro';
                             <span><i class="fas fa-calendar"></i> April 20, 2026</span>
                             <span><i class="fas fa-tag"></i> Pricing</span>
                         </div>
-                        <h3><a href="#">Understanding Junk Removal Pricing in 2026</a></h3>
+                        <h3><a href="/pricing">Understanding Junk Removal Pricing in 2026</a></h3>
                         <p>What factors affect junk removal costs? We break down pricing structures so you can budget
                             effectively for your cleanup project.</p>
-                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Read More</a>
+                        <a href="/pricing" class="btn btn-secondary" style="margin-top: 1rem;">View Pricing</a>
                     </div>
                 </article>
 
@@ -99,15 +100,18 @@ import Layout from '../layouts/Layout.astro';
                             <span><i class="fas fa-calendar"></i> April 15, 2026</span>
                             <span><i class="fas fa-tag"></i> Maintenance</span>
                         </div>
-                        <h3><a href="#">How Often Should You Pressure Wash Your Home?</a></h3>
-                        <p>Maintenance schedules vary by surface and climate. Here's our expert recommendation for
+                        <h3><a href="/contact?service=pressure">How Often Should You Pressure Wash Your Home?</a></h3>
+                        <p>Maintenance schedules vary by surface and climate. Here is our expert recommendation for
                             Tri-Cities homeowners.</p>
-                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Read More</a>
+                        <a href="/contact?service=pressure" class="btn btn-secondary" style="margin-top: 1rem;">Get a Quote</a>
                     </div>
                 </article>
             </div>
+            <div class="text-center" style="margin-top: 3rem;">
+                <p style="color: var(--text-light); margin-bottom: 1rem;">Ready to book a service?</p>
+                <a href="/contact" class="btn btn-primary btn-lg" style="margin-right: 0.5rem;"><i class="fas fa-envelope"></i> Get a Free Quote</a>
+                <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
         </div>
     </section>
-
-    <!-- Footer -->
 </Layout>

@@ -1,10 +1,12 @@
 ---
+import { site } from '../config/site';
+
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 <!-- Announcement -->
 <div class="announcement">
-    <i class="fas fa-bolt"></i> Same-Day Service Available — Call <a href="tel:+15095280560">(509) 528-0560</a> or
-    <a href="https://wa.me/15095280560">WhatsApp</a>
+    <i class="fas fa-bolt"></i> Same-Day Service Available — Call <a href={`tel:${site.phoneTel}`}>{site.phone}</a> or
+    <a href={site.whatsappUrl}>WhatsApp</a>
 </div>
 
 <!-- Header -->
@@ -12,8 +14,8 @@ const currentPath = new URL(Astro.request.url).pathname;
     <div class="container">
         <nav class="nav">
             <a href="/" class="logo">
-                <img src="/assets/logo.jpeg" alt="3CLEANING SERVICE">
-                <span class="logo-text">3CLEANING<span>SERVICE</span></span>
+                <img src="/assets/logo.jpeg" alt={site.nameFull}>
+                <span class="logo-text">H3cleaning<span>SERVICE</span></span>
             </a>
             <div class="nav-links">
                 <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
@@ -24,8 +26,8 @@ const currentPath = new URL(Astro.request.url).pathname;
                 <a href="/contact" class={currentPath.startsWith('/contact') ? 'active' : ''}>Contact</a>
             </div>
             <div class="nav-cta">
-                <a href="tel:+15095280560" class="btn btn-dark btn-sm"><i class="fas fa-phone"></i></a>
-                <a href="https://wa.me/15095280560" target="_blank" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i></a>
+                <a href={`tel:${site.phoneTel}`} class="btn btn-dark btn-sm"><i class="fas fa-phone"></i></a>
+                <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i></a>
                 <a href="/contact" class="btn btn-primary">Get Quote</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -40,6 +42,7 @@ const currentPath = new URL(Astro.request.url).pathname;
         <a href="/gallery">Gallery</a>
         <a href="/faq">FAQ</a>
         <a href="/contact">Contact</a>
-        <a href="tel:+15095280560" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+        <a href={`tel:${site.phoneTel}`} class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+        <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
 </header>

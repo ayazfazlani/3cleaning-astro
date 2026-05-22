@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | About" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | About`}>
 <section class="breadcrumb">
         <div class="container">
             <h1>About Us</h1>
@@ -18,7 +19,7 @@ import Layout from '../layouts/Layout.astro';
                 <div>
                     <span class="section-label">Our Story</span>
                     <h2 style="margin-bottom: 1rem;">Your Trusted Cleaning Partner in Tri-Cities</h2>
-                    <p style="margin-bottom: 1rem;">3CLEANING SERVICE was founded with a simple mission: provide
+                    <p style="margin-bottom: 1rem;">{site.nameFull} was founded with a simple mission: provide
                         reliable, professional cleaning services that make life easier for homeowners and businesses
                         across Washington's Tri-Cities region.</p>
                     <p style="margin-bottom: 1rem;">What started as a small operation has grown into one of the most
@@ -66,7 +67,7 @@ import Layout from '../layouts/Layout.astro';
                     <div class="feature-icon"><i class="fas fa-heart"></i></div>
                     <div class="feature-content">
                         <h3>Integrity First</h3>
-                        <p>Honest pricing, clear communication, doing what's right every time.</p>
+                        <p>Honest pricing, clear communication, and doing what is right every time.</p>
                     </div>
                 </div>
                 <div class="feature-item">

@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
+---
+
+<Layout title={`${site.nameFull} | Terms of Service`}>
+<section class="breadcrumb">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <div class="breadcrumb-nav">
+                <a href="/">Home</a>
+                <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+                <span>Terms of Service</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <h2>Terms of Service</h2>
+            <p style="margin-bottom: 2rem;">Last updated: May 22, 2026</p>
+
+            <h3>1. Services</h3>
+            <p style="margin-bottom: 1.5rem;">{site.nameFull} provides junk removal, pressure washing, trash bin rental,
+                and related cleaning services in the Tri-Cities, WA area. Service scope and pricing are confirmed in your
+                quote before work begins.</p>
+
+            <h3>2. Quotes & Payment</h3>
+            <p style="margin-bottom: 1.5rem;">Quotes are estimates based on the information you provide. Final pricing may
+                adjust after an on-site assessment. Payment is due upon completion unless otherwise agreed in writing.</p>
+
+            <h3>3. Scheduling & Cancellations</h3>
+            <p style="margin-bottom: 1.5rem;">We strive to arrive on time. If you need to reschedule or cancel, please
+                notify us as early as possible by phone, WhatsApp, or email so we can offer your slot to another customer.
+            </p>
+
+            <h3>4. Liability</h3>
+            <p style="margin-bottom: 1.5rem;">We are licensed and insured. We are not responsible for hazardous materials,
+                items not disclosed before service, or damage to surfaces that were already compromised prior to cleaning.
+            </p>
+
+            <h3>5. Contact</h3>
+            <p>Questions about these terms? Email <a href={`mailto:${site.email}`}>{site.email}</a>, call <a
+                    href={`tel:${site.phoneTel}`}>{site.phone}</a>, or visit our <a href="/contact">contact page</a>.</p>
+        </div>
+    </section>
+</Layout>

@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | Junk Removal & Pressure Washing Tri-Cities WA" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | Junk Removal & Pressure Washing Tri-Cities WA`}>
 <!-- Hero -->
     <section class="hero">
         <div class="container">
@@ -19,9 +20,8 @@ import Layout from '../layouts/Layout.astro';
                     <div class="hero-actions">
                         <a href="/contact" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Free
                             Quote</a>
-                        <a href="tel:+15095280560" class="btn btn-outline btn-lg"
-                            style="color:white;border-color:rgba(255,255,255,0.3);"><i class="fas fa-phone"></i> (509)
-                            528-0560</a>
+                        <a href={`tel:${site.phoneTel}`} class="btn btn-outline btn-lg"
+                            style="color:white;border-color:rgba(255,255,255,0.3);"><i class="fas fa-phone"></i> {site.phone}</a>
                     </div>
                     <div class="hero-trust">
                         <div class="hero-trust-item"><i class="fas fa-shield-alt"></i> Licensed & Insured</div>
@@ -30,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <img src="assets/images/five.jpeg" alt="Professional cleaning service Tri-Cities WA">
+                    <img src="/assets/images/five.jpeg" alt="Professional cleaning service Tri-Cities WA">
                     <div class="hero-review-float">
                         <div class="avatar">JD</div>
                         <div class="content">
@@ -65,7 +65,7 @@ import Layout from '../layouts/Layout.astro';
                         <li><i class="fas fa-check"></i> Garage Cleanouts</li>
                     </ul>
                     <div class="price">$325 <span>per load</span></div>
-                    <a href="contact.html?service=junk" class="btn btn-primary">Book Now</a>
+                    <a href="/contact?service=junk" class="btn btn-primary">Book Now</a>
                 </div>
                 <div class="service-card">
                     <div class="card-icon"><i class="fas fa-spray-can"></i></div>
@@ -78,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
                         <li><i class="fas fa-check"></i> Deck & Patio</li>
                     </ul>
                     <div class="price">$175 <span>starting</span></div>
-                    <a href="contact.html?service=pressure" class="btn btn-primary">Book Now</a>
+                    <a href="/contact?service=pressure" class="btn btn-primary">Book Now</a>
                 </div>
                 <div class="service-card">
                     <div class="card-icon"><i class="fas fa-trash-alt"></i></div>
@@ -90,7 +90,7 @@ import Layout from '../layouts/Layout.astro';
                         <li><i class="fas fa-check"></i> Scheduled Pickup</li>
                     </ul>
                     <div class="price">$20 <span>per bin</span></div>
-                    <a href="contact.html?service=bin" class="btn btn-primary">Book Now</a>
+                    <a href="/contact?service=bin" class="btn btn-primary">Book Now</a>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="quote">"3CLEANING cleared my entire garage in under 2 hours. Professional, fast, and
+                            <p class="quote">"H3cleaning cleared my entire garage in under 2 hours. Professional, fast, and
                                 exactly what they quoted. Best junk removal in Pasco!"</p>
                             <div class="author">
                                 <div class="avatar">SM</div>
@@ -184,7 +184,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="quote">"3CLEANING cleared my entire garage in under 2 hours. Professional, fast, and
+                            <p class="quote">"H3cleaning cleared my entire garage in under 2 hours. Professional, fast, and
                                 exactly what they quoted. Best junk removal in Pasco!"</p>
                             <div class="author">
                                 <div class="avatar">SM</div>
@@ -236,13 +236,13 @@ import Layout from '../layouts/Layout.astro';
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Why Choose Us</span>
-                <h2>3CLEANING vs. The Rest</h2>
+                <h2>H3cleaning vs. The Rest</h2>
                 <p>See why homeowners across Tri-Cities trust us.</p>
             </div>
             <div class="compare-table">
                 <div class="compare-header">
                     <div>Feature</div>
-                    <div style="text-align:center;">3CLEANING</div>
+                    <div style="text-align:center;">H3cleaning</div>
                     <div style="text-align:center;">Others</div>
                 </div>
                 <div class="compare-row">
@@ -345,8 +345,8 @@ import Layout from '../layouts/Layout.astro';
                             class="fas fa-chevron-down"></i></button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">Yes! We offer same-day and next-day service depending on
-                            availability. Call <a href="tel:+15095280560">(509) 528-0560</a> or message us on <a
-                                href="https://wa.me/15095280560">WhatsApp</a> to check current slots.</div>
+                            availability. Call <a href={`tel:${site.phoneTel}`}>{site.phone}</a> or message us on <a
+                                href={site.whatsappUrl}>WhatsApp</a> to check current slots.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -397,7 +397,8 @@ import Layout from '../layouts/Layout.astro';
                     style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
                     <a href="/contact" class="btn btn-primary btn-lg"><i class="fas fa-calendar-check"></i> Free
                         Quote</a>
-                    <a href="tel:+15095280560" class="btn btn-outline btn-lg"><i class="fas fa-phone"></i> Call Now</a>
+                    <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href={`tel:${site.phoneTel}`} class="btn btn-outline btn-lg"><i class="fas fa-phone"></i> Call Now</a>
                 </div>
                 <div
                     style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; color: var(--text-muted); font-size: 0.85rem;">

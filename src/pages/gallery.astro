@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | Gallery" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | Gallery`}>
 <section class="breadcrumb">
         <div class="container">
             <h1>Our Work</h1>
@@ -23,50 +24,50 @@ import Layout from '../layouts/Layout.astro';
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="assets/images/one.jpeg" alt="Junk removal before and after - Tri-Cities WA"
+                    <img src="/assets/images/one.jpeg" alt="Junk removal before and after - Tri-Cities WA"
                         loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Junk Removal - Residential</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/two.jpeg" alt="Pressure washing driveway - Pasco WA" loading="lazy">
+                    <img src="/assets/images/two.jpeg" alt="Pressure washing driveway - Pasco WA" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Pressure Washing - Driveway</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/three.jpeg" alt="Commercial junk removal - Richland WA" loading="lazy">
+                    <img src="/assets/images/three.jpeg" alt="Commercial junk removal - Richland WA" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Junk Removal - Commercial</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/four.jpeg" alt="House pressure washing - Kennewick WA" loading="lazy">
+                    <img src="/assets/images/four.jpeg" alt="House pressure washing - Kennewick WA" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>House Exterior Cleaning</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/five.jpeg" alt="Trash bin service - Walla Walla WA" loading="lazy">
+                    <img src="/assets/images/five.jpeg" alt="Trash bin service - Walla Walla WA" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Trash Bin Service</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/two.jpeg" alt="Yard cleanup and brush removal" loading="lazy">
+                    <img src="/assets/images/two.jpeg" alt="Yard cleanup and brush removal" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Yard Cleanup</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/six.jpeg" alt="Deck pressure washing - Benton City WA" loading="lazy">
+                    <img src="/assets/images/six.jpeg" alt="Deck pressure washing - Benton City WA" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Deck Restoration</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/one.jpeg" alt="Garage cleanout service" loading="lazy">
+                    <img src="/assets/images/one.jpeg" alt="Garage cleanout service" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Garage Cleanout</h4>
                     </div>
@@ -74,7 +75,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div class="text-center mt-3">
-                <p style="margin-bottom: 1.5rem; color: var(--gray);">Have a project in mind? Let us add your
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Have a project in mind? Let us add your
                     transformation to our gallery!</p>
                 <a href="/contact" class="btn btn-primary"><i class="fas fa-camera"></i> Share Your Project</a>
             </div>
@@ -96,9 +97,15 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <script is:inline>
+    let lightboxController = null;
+
     function initLightbox() {
         const lightbox = document.getElementById('galleryLightbox');
         if (!lightbox) return;
+
+        lightboxController?.abort();
+        lightboxController = new AbortController();
+        const { signal } = lightboxController;
 
         const lbImage = document.getElementById('lightboxImage');
         const lbCaption = document.getElementById('lightboxCaption');
@@ -137,30 +144,36 @@ import Layout from '../layouts/Layout.astro';
         }
 
         items.forEach(function(item, i) {
-            item.addEventListener('click', function() { openLightbox(i); });
+            item.addEventListener('click', function() { openLightbox(i); }, { signal });
         });
 
-        lbClose.addEventListener('click', closeLightbox);
-        lbPrev.addEventListener('click', function() { navigate(-1); });
-        lbNext.addEventListener('click', function() { navigate(1); });
+        lbClose.addEventListener('click', closeLightbox, { signal });
+        lbPrev.addEventListener('click', function() { navigate(-1); }, { signal });
+        lbNext.addEventListener('click', function() { navigate(1); }, { signal });
 
         lightbox.addEventListener('click', function(e) {
             if (e.target === lightbox) closeLightbox();
-        });
+        }, { signal });
 
         document.addEventListener('keydown', function(e) {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') navigate(-1);
             if (e.key === 'ArrowRight') navigate(1);
+        }, { signal });
+    }
+
+    function bootLightbox() {
+        requestAnimationFrame(function() {
+            requestAnimationFrame(initLightbox);
         });
     }
 
-    document.addEventListener('astro:page-load', initLightbox);
+    document.addEventListener('astro:page-load', bootLightbox);
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLightbox);
+        document.addEventListener('DOMContentLoaded', bootLightbox, { once: true });
     } else {
-        initLightbox();
+        bootLightbox();
     }
     </script>
 </Layout>

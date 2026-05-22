@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | Services" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | Services`}>
 <section class="breadcrumb">
         <div class="container">
             <h1>Our Services</h1>
@@ -39,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
                             <span style="font-size:0.95rem;color:var(--text-muted);font-weight:500;">per full
                                 load</span>
                         </div>
-                        <a href="contact.html?service=junk" class="btn btn-primary" style="margin-top:1rem;"><i
+                        <a href="/contact?service=junk" class="btn btn-primary" style="margin-top:1rem;"><i
                                 class="fas fa-calendar-check"></i> Book This Service</a>
                     </div>
                 </div>
@@ -62,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
                             <span style="font-size:0.95rem;color:var(--text-muted);font-weight:500;">starting
                                 price</span>
                         </div>
-                        <a href="contact.html?service=pressure" class="btn btn-primary" style="margin-top:1rem;"><i
+                        <a href="/contact?service=pressure" class="btn btn-primary" style="margin-top:1rem;"><i
                                 class="fas fa-calendar-check"></i> Book This Service</a>
                     </div>
                 </div>
@@ -83,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="price" style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">$20
                             <span style="font-size:0.95rem;color:var(--text-muted);font-weight:500;">per bin</span>
                         </div>
-                        <a href="contact.html?service=bin" class="btn btn-primary" style="margin-top:1rem;"><i
+                        <a href="/contact?service=bin" class="btn btn-primary" style="margin-top:1rem;"><i
                                 class="fas fa-calendar-check"></i> Book This Service</a>
                     </div>
                 </div>
@@ -124,6 +125,7 @@ import Layout from '../layouts/Layout.astro';
             <p style="color: var(--text-light); margin-bottom: 1.5rem;">Have a unique project? We handle special
                 requests and custom cleaning jobs. Tell us what you need.</p>
             <a href="/contact" class="btn btn-primary btn-lg"><i class="fas fa-envelope"></i> Contact Us</a>
+            <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg" style="margin-left: 0.5rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </section>
 </Layout>

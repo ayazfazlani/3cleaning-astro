@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | Faq" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | FAQ`}>
 <section class="breadcrumb">
         <div class="container">
             <h1>FAQ</h1>
@@ -42,8 +43,8 @@ import Layout from '../layouts/Layout.astro';
                     <div class="faq-answer">
                         <div class="faq-answer-content">Yes! Depending on availability, we offer same-day and next-day
                             service for urgent cleaning and junk removal needs. Call us at <a
-                                href="tel:+15095280560">(509) 528-0560</a> or message us on <a
-                                href="https://wa.me/15095280560">WhatsApp</a> to check availability.</div>
+                                href={`tel:${site.phoneTel}`}>{site.phone}</a> or message us on <a
+                                href={site.whatsappUrl}>WhatsApp</a> to check availability.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -58,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
                     <button class="faq-question">Is your company licensed and insured? <i
                             class="fas fa-chevron-down"></i></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-content">Absolutely. 3CLEANING SERVICE is fully licensed and insured for
+                        <div class="faq-answer-content">Absolutely. {site.nameFull} is fully licensed and insured for
                             your protection and peace of mind. We take professionalism seriously.</div>
                     </div>
                 </div>
@@ -93,8 +94,7 @@ import Layout from '../layouts/Layout.astro';
                     <button class="faq-question">How do I schedule a service? <i
                             class="fas fa-chevron-down"></i></button>
                     <div class="faq-answer">
-                        <div class="faq-answer-content">You can schedule by calling <a href="tel:+15095280560">(509)
-                                528-0560</a>, messaging us on <a href="https://wa.me/15095280560">WhatsApp</a>, or
+                        <div class="faq-answer-content">You can schedule by calling <a href={`tel:${site.phoneTel}`}>{site.phone}</a>, messaging us on <a href={site.whatsappUrl}>WhatsApp</a>, or
                             filling out the form on our <a href="/contact">Contact page</a>. We'll get back to you
                             within 24 hours.</div>
                     </div>

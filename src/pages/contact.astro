@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
 ---
 
-<Layout title="3CLEANING SERVICE | Contact" description="Professional cleaning services.">
+<Layout title={`${site.nameFull} | Contact`}>
 <section class="breadcrumb">
         <div class="container">
             <h1>Contact Us</h1>
@@ -24,7 +25,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="icon"><i class="fas fa-phone"></i></div>
                         <div>
                             <h4>Phone</h4>
-                            <a href="tel:+15095280560">(509) 528-0560</a>
+                            <a href={`tel:${site.phoneTel}`}>{site.phone}</a>
                             <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Mon–Sat: 8AM – 6PM
                             </p>
                         </div>
@@ -33,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="icon"><i class="fab fa-whatsapp"></i></div>
                         <div>
                             <h4>WhatsApp</h4>
-                            <a href="https://wa.me/15095280560" target="_blank">Chat on WhatsApp</a>
+                            <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
                             <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Fastest response
                                 time</p>
                         </div>
@@ -42,7 +43,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h4>Email</h4>
-                            <a href="mailto:info@3cleaningservice.com">info@3cleaningservice.com</a>
+                            <a href={`mailto:${site.email}`}>{site.email}</a>
                             <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;">Reply within 24
                                 hours</p>
                         </div>
@@ -62,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
                                 style="margin-right:0.5rem;"></i>Prefer WhatsApp?</h3>
                         <p style="color:rgba(255,255,255,0.8);font-size:0.9rem;margin-bottom:1rem;">Get instant
                             responses and book directly through WhatsApp.</p>
-                        <a href="https://wa.me/15095280560" target="_blank" class="btn"
+                        <a href={site.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn"
                             style="background:#25d366;color:white;width:100%;"><i class="fab fa-whatsapp"></i> Start
                             Chat</a>
                     </div>
